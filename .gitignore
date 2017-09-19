@@ -2,3 +2,5 @@
 *.idea 
 #忽略git ignore文件
 #*.gitignore
+#忽略程序编译文件
+*target/*
