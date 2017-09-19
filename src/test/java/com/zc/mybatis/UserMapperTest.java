@@ -11,11 +11,11 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class UserMapperTest extends SuperTest {
+public class Test01 extends SuperTest {
     //    测试Mapper.xml连接方式
     @Test
     public void connTest() {
-        InputStream is = UserMapperTest.class.getClassLoader().getResourceAsStream("conf.xml");
+        InputStream is = Test01.class.getClassLoader().getResourceAsStream("conf.xml");
         SqlSession session = new SqlSessionFactoryBuilder().build(is).openSession(true);
         //Mapper.xml执行方式
         String statement = "com.zc.mybatis.entity.User.list";
@@ -28,7 +28,7 @@ public class UserMapperTest extends SuperTest {
     //    测试接口注解方式
     @Test
     public void annotionTest() {
-        InputStream is = UserMapperTest.class.getClassLoader().getResourceAsStream("conf.xml");
+        InputStream is = Test01.class.getClassLoader().getResourceAsStream("conf.xml");
         SqlSession session = new SqlSessionFactoryBuilder().build(is).openSession(true);
         // 接口注解获取
         UserMapper userDao = session.getMapper(UserMapper.class);

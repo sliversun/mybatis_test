@@ -1,4 +1,8 @@
 package com.zc.mybatis;
 
-public class SuperTest {
+
+import org.apache.log4j.Logger;
+
+public abstract class SuperTest {
+    public Logger log = Logger.getLogger(this.getClass());
 }

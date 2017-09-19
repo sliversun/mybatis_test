@@ -20,8 +20,8 @@
     <!--加载mapper文件：此文件为statement对象执行sql提供sql语句 -->
     <mappers>
          <!--传统mapper的配置-->
-        <!--<mapper resource="mapper/UserMapper.xml"/>-->
-        <!--针对注解方式：方式一-指定接口-->
+        <mapper resource="mapper/UserMapper.xml"/>
+        <!--针对注解方式：方式一-指定接口类-->
          <!--<mapper class="com.zc.mybatis.dao.UserMapper"/>-->
         <!--针对注解方式接口 :方式二-包扫描 -->
         <package name="com.zc.mybatis.dao" />
