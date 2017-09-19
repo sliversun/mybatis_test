@@ -3,14 +3,10 @@ package com.zc.mybatis;
 import com.zc.mybatis.dao.UserMapper;
 import com.zc.mybatis.entity.User;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
 
 public class Test01 {
@@ -18,7 +14,8 @@ public class Test01 {
     @Test
     public void connTest() {
         InputStream is = Test01.class.getClassLoader().getResourceAsStream("conf.xml");
-        SqlSession session = new SqlSessionFactoryBuilder().build(is).openSession(true);
+        SqlSession session = new SqlSessionFactoryBuilder() build(is).openSession(true);
+        //Mapper.xml执行方式
         String statement = "com.zc.mybatis.entity.User.select";
         List<User> list = session.selectList(statement);
         for (User u : list) {
@@ -31,6 +28,7 @@ public class Test01 {
     public void annotionTest() {
         InputStream is = Test01.class.getClassLoader().getResourceAsStream("conf.xml");
         SqlSession session = new SqlSessionFactoryBuilder().build(is).openSession(true);
+        // 接口注解获取
         UserMapper userDao = session.getMapper(UserMapper.class);
         List<User> list = userDao.findUser();
         for (User u : list) {
