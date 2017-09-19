@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--属性配置文件-->
+    <properties resource="db.properties" />
+    <typeAliases>
+        <package name="com.zc.mybatis.entity"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--加载mapper文件：此文件为statement对象执行sql提供sql语句 -->
+    <mappers>
+         <!--传统mapper的配置-->
+        <!--<mapper resource="mapper/UserMapper.xml"/>-->
+        <!--针对注解方式：方式一-指定接口-->
+         <!--<mapper class="com.zc.mybatis.dao.UserMapper"/>-->
+        <!--针对注解方式接口 :方式二-包扫描 -->
+        <package name="com.zc.mybatis.dao" />
+    </mappers>
+</configuration>
